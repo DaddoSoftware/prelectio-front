@@ -6,7 +6,7 @@ import {
   useController,
   get,
 } from "react-hook-form";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   root: {
     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {

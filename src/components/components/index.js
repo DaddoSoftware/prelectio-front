@@ -5,6 +5,7 @@ import { Services } from "./landing/services";
 import { InformacionPersonal } from "./registerDeportista/informacionPersonal";
 import { InformacionDeportiva } from "./registerDeportista/informacionDeportiva";
 import { VideoYFotoPerfil } from "./registerDeportista/videoFotoPerfil";
+import { CarouselTeams } from "./landing/carouselTeams";
 export {
   Main,
   AboutUs,
@@ -13,4 +14,5 @@ export {
   InformacionPersonal,
   InformacionDeportiva,
   VideoYFotoPerfil,
+  CarouselTeams,
 };

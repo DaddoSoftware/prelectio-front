@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 export const AboutUs = () => {
   return (
     <div className="aboutUs" id="aboutUs">
