@@ -33,7 +33,7 @@ export const Footer = () => {
               <Col md={2} xs={12}>
                 <Button
                   className="footer__topRow__col__buttonRow__button"
-                  href="#home"
+                  href="/#home"
                 >
                   Inicio
                 </Button>
@@ -41,7 +41,15 @@ export const Footer = () => {
               <Col md={2} xs={12}>
                 <Button
                   className="footer__topRow__col__buttonRow__button"
-                  href="#aboutUs"
+                  href="/#news"
+                >
+                  Noticias
+                </Button>
+              </Col>
+              <Col md={2} xs={12}>
+                <Button
+                  className="footer__topRow__col__buttonRow__button"
+                  href="/#aboutUs"
                 >
                   Sobre Nosotros
                 </Button>
@@ -49,22 +57,24 @@ export const Footer = () => {
               <Col md={2} xs={12}>
                 <Button
                   className="footer__topRow__col__buttonRow__button"
-                  href="#aboutUs"
+                  href="/#aboutUs"
                 >
                   Quienes Somos
                 </Button>
               </Col>
+
               <Col md={2} xs={12}>
                 <Button
                   className="footer__topRow__col__buttonRow__button"
-                  href="#services"
+                  href="/#services"
                 >
                   Servicios
                 </Button>
               </Col>
               <Col md={2} xs={12}>
                 <Link to="/login">
-                  <Button className="footer__topRow__col__buttonRow__button">
+                  <Button className="navbar__col__buttonRow__button__primary">
+                    {/*   <Button className="footer__topRow__col__buttonRow__button"> */}
                     Ingresar
                   </Button>
                 </Link>

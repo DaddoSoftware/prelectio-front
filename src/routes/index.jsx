@@ -22,6 +22,7 @@ import { RecruiterProfile } from "../pages/recruiter/recruiterProfile";
 import { AthleteProfile } from "../pages/athlete/athleteProfile";
 import { ListAthletes } from "../pages/athlete/listAthlete";
 import { AthleteDetail } from "../pages/athlete/athleteDetail";
+import { Tournaments } from "../pages/tournaments/tournaments";
 function AppRoutes() {
   const location = useLocation();
   return (
@@ -110,6 +111,9 @@ function AppRoutes() {
         {/* Not Found */}
         <Route path="*" element={<NotFound />} />
         <Route path="/registerAthlete" element={<RegisterDeportista />} />
+        <Route element={<Layout />}>
+          <Route path="/tournaments" element={<Tournaments />} />
+        </Route>
       </Routes>
     </AnimatePresence>
   );
