@@ -5,7 +5,7 @@ import { CarouselTournaments } from "./carouseltournaments";
 export const Tournaments = () => {
   return (
     <>
-      <div className="aboutUs">
+      <div className="aboutUs" id="aboutUs">
         <Container className="aboutUs__mainContainer">
           <Row className="aboutUs__mainContainer__topRow mb-5">
             <h1 className="text-center">Torneos</h1>

@@ -30,7 +30,7 @@ export const Footer = () => {
               className="footer__topRow__col__buttonRow"
               style={{ paddingTop: "4rem" }}
             >
-              <Col md={2} xs={12}>
+              <Col md={1} xs={12}>
                 <Button
                   className="footer__topRow__col__buttonRow__button"
                   href="/#home"
@@ -38,7 +38,7 @@ export const Footer = () => {
                   Inicio
                 </Button>
               </Col>
-              <Col md={2} xs={12}>
+              <Col md={1} xs={12}>
                 <Button
                   className="footer__topRow__col__buttonRow__button"
                   href="/#news"
@@ -69,6 +69,14 @@ export const Footer = () => {
                   href="/#services"
                 >
                   Servicios
+                </Button>
+              </Col>
+              <Col md={2} xs={12}>
+                <Button
+                  className="footer__topRow__col__buttonRow__button"
+                  href="/tournaments"
+                >
+                  Torneos
                 </Button>
               </Col>
               <Col md={2} xs={12}>
