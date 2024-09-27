@@ -16,18 +16,26 @@ export const NavBar = () => {
         </Col>
         <Col xs={8} lg={8} className="text-center navbar__col">
           <Row className="navbar__col__buttonRow">
-            <Col xs={2}>
+            <Col xs={1}>
               <Button
                 className="navbar__col__buttonRow__button__secondary"
-                href="#home"
+                href="/#home"
               >
                 Inicio
+              </Button>
+            </Col>
+            <Col xs={1}>
+              <Button
+                className="navbar__col__buttonRow__button__secondary"
+                href="/#news"
+              >
+                Noticias
               </Button>
             </Col>
             <Col xs={2}>
               <Button
                 className="navbar__col__buttonRow__button__secondary"
-                href="#aboutUs"
+                href="/#aboutUs"
               >
                 Sobre Nosotros
               </Button>
@@ -35,20 +43,29 @@ export const NavBar = () => {
             <Col xs={2}>
               <Button
                 className="navbar__col__buttonRow__button__secondary"
-                href="#aboutUs"
+                href="/#aboutUs"
               >
                 Quienes Somos
               </Button>
             </Col>
-            <Col xs={2}>
+
+            <Col xs={1}>
               <Button
                 className="navbar__col__buttonRow__button__secondary"
-                href="#services"
+                href="/#services"
               >
                 Servicios
               </Button>
             </Col>
             <Col xs={2}>
+              <Button
+                className="navbar__col__buttonRow__button__secondary"
+                href="/tournaments"
+              >
+                Torneos
+              </Button>
+            </Col>
+            <Col xs={1}>
               <Link to="/login">
                 <Button className="navbar__col__buttonRow__button__primary">
                   Ingresar
@@ -92,7 +109,7 @@ export const NavBar = () => {
             <Row className="navbar__responsive__col__buttonRow">
               <Button
                 className="navbar__responsive__col__buttonRow__button__secondary"
-                href="#home"
+                href="/#home"
               >
                 Inicio
               </Button>
@@ -100,7 +117,15 @@ export const NavBar = () => {
             <Row className="navbar__responsive__col__buttonRow">
               <Button
                 className="navbar__responsive__col__buttonRow__button__secondary"
-                href="#aboutUs"
+                href="/#news"
+              >
+                Noticias
+              </Button>
+            </Row>
+            <Row className="navbar__responsive__col__buttonRow">
+              <Button
+                className="navbar__responsive__col__buttonRow__button__secondary"
+                href="/#aboutUs"
               >
                 Sobre Nosotros
               </Button>
@@ -108,17 +133,26 @@ export const NavBar = () => {
             <Row className="navbar__responsive__col__buttonRow">
               <Button
                 className="navbar__responsive__col__buttonRow__button__secondary"
-                href="#aboutUs"
+                href="/#aboutUs"
               >
                 Quienes Somos
+              </Button>
+            </Row>
+
+            <Row className="navbar__responsive__col__buttonRow">
+              <Button
+                className="navbar__responsive__col__buttonRow__button__secondary"
+                href="/#services"
+              >
+                Servicios
               </Button>
             </Row>
             <Row className="navbar__responsive__col__buttonRow">
               <Button
                 className="navbar__responsive__col__buttonRow__button__secondary"
-                href="#services"
+                href="/tournaments"
               >
-                Servicios
+                Torneos
               </Button>
             </Row>
             <Row className="navbar__responsive__col__buttonRow">

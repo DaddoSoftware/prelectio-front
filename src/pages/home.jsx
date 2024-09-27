@@ -11,8 +11,8 @@ export const Home = () => {
   return (
     <div>
       <Main />
-      <AboutUs />
       <CarouselTeams />
+      <AboutUs />
       <Services />
       <CallToAction />
     </div>

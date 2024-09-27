@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TeamsSlider } from "../landing/teamsSliders";
-import { Carousel, Row } from "react-bootstrap";
+import { Carousel, Row, Container } from "react-bootstrap";
 
 export const CarouselTeams = () => {
   const [activeServiceCarousel, setActiveServiceCarousel] = useState(0);
@@ -25,17 +25,22 @@ export const CarouselTeams = () => {
 
   return (
     <>
-      <Row className="services__mainContainer__ServicesCarouselRow">
-        <Carousel onSelect={handleSelect} activeIndex={activeServiceCarousel}>
-          {images.map((item) => {
-            return (
-              <Carousel.Item>
-                <TeamsSlider img={item} />
-              </Carousel.Item>
-            );
-          })}
-        </Carousel>
-      </Row>
+      <div className="aboutUs" id="news">
+        <Container className="aboutUs__mainContainer">
+          <Row className="aboutUs__mainContainer__topRow">
+            <h1 className="text-center">Noticias</h1>
+          </Row>
+          <Carousel onSelect={handleSelect} activeIndex={activeServiceCarousel}>
+            {images.map((item, i) => {
+              return (
+                <Carousel.Item key={item[i]}>
+                  <TeamsSlider img={item} />
+                </Carousel.Item>
+              );
+            })}
+          </Carousel>
+        </Container>
+      </div>
     </>
   );
 };
