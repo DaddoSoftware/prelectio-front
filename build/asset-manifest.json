@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cbde0da0.css",
-    "main.js": "/static/js/main.f4bdd247.js",
+    "main.js": "/static/js/main.833edf9b.js",
     "static/js/453.05967a1f.chunk.js": "/static/js/453.05967a1f.chunk.js",
     "static/media/equipos_ganador_sub20.jpg": "/static/media/equipos_ganador_sub20.0c01ac54610bf3b7b949.jpg",
     "static/media/IMG_7308.jpg": "/static/media/IMG_7308.fbe0081b2c60eebb8229.jpg",
@@ -50,11 +50,11 @@
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
     "main.cbde0da0.css.map": "/static/css/main.cbde0da0.css.map",
-    "main.f4bdd247.js.map": "/static/js/main.f4bdd247.js.map",
+    "main.833edf9b.js.map": "/static/js/main.833edf9b.js.map",
     "453.05967a1f.chunk.js.map": "/static/js/453.05967a1f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cbde0da0.css",
-    "static/js/main.f4bdd247.js"
+    "static/js/main.833edf9b.js"
   ]
 }
