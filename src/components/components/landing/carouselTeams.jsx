@@ -28,9 +28,15 @@ export const CarouselTeams = () => {
       <div className="aboutUs" id="news">
         <Container className="aboutUs__mainContainer">
           <Row className="aboutUs__mainContainer__topRow">
-            <h1 className="text-center">Noticias</h1>
+            <h1 className="text-center" style={{ fontSize: 64 }}>
+              Noticias
+            </h1>
           </Row>
-          <Carousel onSelect={handleSelect} activeIndex={activeServiceCarousel}>
+          <Carousel
+            variant="dark"
+            onSelect={handleSelect}
+            activeIndex={activeServiceCarousel}
+          >
             {images.map((item, i) => {
               return (
                 <Carousel.Item key={item[i]}>

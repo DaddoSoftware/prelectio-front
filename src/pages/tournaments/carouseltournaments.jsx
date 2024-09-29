@@ -56,7 +56,11 @@ export const CarouselTournaments = (section) => {
           <Row className="aboutUs__mainContainer__topRow">
             <h1 className="text-center">{sectionKey.toUpperCase()}</h1>
           </Row>
-          <Carousel onSelect={handleSelect} activeIndex={activeServiceCarousel}>
+          <Carousel
+            variant="dark"
+            onSelect={handleSelect}
+            activeIndex={activeServiceCarousel}
+          >
             {sectionImages &&
               sectionImages.map((item, i) => {
                 return (
