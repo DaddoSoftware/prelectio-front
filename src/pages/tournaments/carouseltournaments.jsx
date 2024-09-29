@@ -51,9 +51,9 @@ export const CarouselTournaments = (section) => {
 
   return (
     <>
-      <div className="aboutUs">
+      <div>
         <Container>
-          <Row className="aboutUs__mainContainer__topRow">
+          <Row className="aboutUs__mainContainer__topRow my-4">
             <h1 className="text-center">{sectionKey.toUpperCase()}</h1>
           </Row>
           <Carousel
