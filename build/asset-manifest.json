@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.1235f4ff.css",
-    "main.js": "/static/js/main.f67b7332.js",
+    "main.js": "/static/js/main.3dffb41a.js",
     "static/js/453.05967a1f.chunk.js": "/static/js/453.05967a1f.chunk.js",
     "static/media/IMG_7308.jpg": "/static/media/IMG_7308.fbe0081b2c60eebb8229.jpg",
     "static/media/IMG_7216.jpg": "/static/media/IMG_7216.f92eb48a0ccb374ab0af.jpg",
@@ -14,7 +14,10 @@
     "static/media/recruitersPreview.png": "/static/media/recruitersPreview.85abfd9daee6c350eed8.png",
     "static/media/registerDeportistaBackground.png": "/static/media/registerDeportistaBackground.82b03191a0507ff03aca.png",
     "static/media/fondoLogin.png": "/static/media/fondoLogin.8773173a81408e8b2749.png",
+    "static/media/resultados_sub20.jpeg": "/static/media/resultados_sub20.090d3da649a579ba48a1.jpeg",
     "static/media/HomeBanner.png": "/static/media/HomeBanner.84149c64e9337d64f7aa.png",
+    "static/media/resultados_sub15.jpeg": "/static/media/resultados_sub15.6acb0379fb5da8a17b64.jpeg",
+    "static/media/resultados_sub17.jpeg": "/static/media/resultados_sub17.bd2f1f37a47977d56c92.jpeg",
     "static/media/registerBackground.png": "/static/media/registerBackground.93e64657db082b4ced17.png",
     "static/media/talentsPreview.png": "/static/media/talentsPreview.0b14816b006251ccb113.png",
     "static/media/reclutador.png": "/static/media/reclutador.9e299168dc43c99d5c35.png",
@@ -40,11 +43,11 @@
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
     "main.1235f4ff.css.map": "/static/css/main.1235f4ff.css.map",
-    "main.f67b7332.js.map": "/static/js/main.f67b7332.js.map",
+    "main.3dffb41a.js.map": "/static/js/main.3dffb41a.js.map",
     "453.05967a1f.chunk.js.map": "/static/js/453.05967a1f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1235f4ff.css",
-    "static/js/main.f67b7332.js"
+    "static/js/main.3dffb41a.js"
   ]
 }
