@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { TeamsSlider } from "../landing/teamsSliders";
-import { Carousel, Row, Container } from "react-bootstrap";
+import { Carousel, Row, Container, Col } from "react-bootstrap";
 
 export const CarouselTeams = () => {
-  const [activeServiceCarousel, setActiveServiceCarousel] = useState(0);
+  const [activeNoticiasCarousel, setActiveNoticiasCarousel] = useState(0);
+  const [activeResultadosCarousel, setActiveResultadosCarousel] = useState(0);
+
   const handleSelect = (selectedIndex) => {
-    setActiveServiceCarousel(selectedIndex);
+    setActiveNoticiasCarousel(selectedIndex);
+  };
+  const handleResultadoSelect = (selectedIndex) => {
+    setActiveResultadosCarousel(selectedIndex);
   };
 
   function importAll(r) {
@@ -15,9 +20,17 @@ export const CarouselTeams = () => {
     });
     return images;
   }
-  const images = importAll(
+
+  const noticias = importAll(
     require.context(
       "../../../assets/home/equiposCarousel",
+      false,
+      /\.(png|jpe?g|svg)$/
+    )
+  );
+  const resultados = importAll(
+    require.context(
+      "../../../assets/home/resultados",
       false,
       /\.(png|jpe?g|svg)$/
     )
@@ -27,24 +40,37 @@ export const CarouselTeams = () => {
     <>
       <div className="aboutUs" id="news">
         <Container className="aboutUs__mainContainer">
-          <Row className="aboutUs__mainContainer__topRow">
-            <h1 className="text-center" style={{ fontSize: 64 }}>
-              Noticias
-            </h1>
+          <Row className="d-flex align-items-center">
+            <Col lg={6} md={12} className="mb-4">
+              <h1 className="text-center">Noticias</h1>
+              <Carousel
+                variant="dark"
+                onSelect={handleSelect}
+                activeIndex={activeNoticiasCarousel}
+              >
+                {noticias.map((item, i) => (
+                  <Carousel.Item key={i}>
+                    <TeamsSlider img={item} />
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </Col>
+
+            <Col lg={6} md={12} className="mb-4">
+              <h1 className="text-center">Resultados</h1>
+              <Carousel
+                variant="dark"
+                onSelect={handleResultadoSelect}
+                activeIndex={activeResultadosCarousel}
+              >
+                {resultados.map((item, i) => (
+                  <Carousel.Item key={i}>
+                    <TeamsSlider img={item} />
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </Col>
           </Row>
-          <Carousel
-            variant="dark"
-            onSelect={handleSelect}
-            activeIndex={activeServiceCarousel}
-          >
-            {images.map((item, i) => {
-              return (
-                <Carousel.Item key={item[i]}>
-                  <TeamsSlider img={item} />
-                </Carousel.Item>
-              );
-            })}
-          </Carousel>
         </Container>
       </div>
     </>

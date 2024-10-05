@@ -65,13 +65,13 @@ export const NavBar = () => {
                 Torneos
               </Button>
             </Col>
-            <Col xs={1}>
+            {/*  <Col xs={1}>
               <Link to="/login">
                 <Button className="navbar__col__buttonRow__button__primary">
                   Ingresar
                 </Button>
               </Link>
-            </Col>
+            </Col> */}
           </Row>
         </Col>
       </Row>
@@ -155,13 +155,13 @@ export const NavBar = () => {
                 Torneos
               </Button>
             </Row>
-            <Row className="navbar__responsive__col__buttonRow">
+            {/* <Row className="navbar__responsive__col__buttonRow">
               <Link to="/login">
                 <Button className="navbar__responsive__col__buttonRow__button__primary">
                   Ingresar
                 </Button>
               </Link>
-            </Row>
+            </Row> */}
           </div>
         </Collapse>
       </Row>
