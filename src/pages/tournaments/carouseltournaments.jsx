@@ -48,7 +48,7 @@ export const CarouselTournaments = (props) => {
       case "sub17":
         return importAll(
           require.context(
-            "../../assets/home/imagenes/sub17/goleadores",
+            "../../assets/home/imagenes/sub17/goleadores/",
             false,
             /\.(png|jpe?g|svg)$/
           )
@@ -56,7 +56,7 @@ export const CarouselTournaments = (props) => {
       case "sub15":
         return importAll(
           require.context(
-            "../../assets/home/imagenes/sub15/goleadores",
+            "../../assets/home/imagenes/sub15/goleadores/",
             false,
             /\.(png|jpe?g|svg)$/
           )
@@ -64,7 +64,7 @@ export const CarouselTournaments = (props) => {
       default:
         return importAll(
           require.context(
-            "../../assets/home/imagenes/sub20/goleadores",
+            "../../assets/home/imagenes/sub20/goleadores/",
             false,
             /\.(png|jpe?g|svg)$/
           )
@@ -76,7 +76,7 @@ export const CarouselTournaments = (props) => {
       case "sub17":
         return importAll(
           require.context(
-            "../../assets/home/imagenes/sub17/cronograma",
+            "../../assets/home/imagenes/sub17/cronograma/",
             false,
             /\.(png|jpe?g|svg)$/
           )
@@ -84,7 +84,7 @@ export const CarouselTournaments = (props) => {
       case "sub15":
         return importAll(
           require.context(
-            "../../assets/home/imagenes/sub15/cronograma",
+            "../../assets/home/imagenes/sub15/cronograma/",
             false,
             /\.(png|jpe?g|svg)$/
           )
@@ -92,7 +92,7 @@ export const CarouselTournaments = (props) => {
       default:
         return importAll(
           require.context(
-            "../../assets/home/imagenes/sub20/cronograma",
+            "../../assets/home/imagenes/sub20/cronograma/",
             false,
             /\.(png|jpe?g|svg)$/
           )
@@ -104,7 +104,7 @@ export const CarouselTournaments = (props) => {
       case "sub17":
         return importAll(
           require.context(
-            "../../assets/home/imagenes/sub17/posiciones",
+            "../../assets/home/imagenes/sub17/posiciones/",
             false,
             /\.(png|jpe?g|svg)$/
           )
@@ -112,7 +112,7 @@ export const CarouselTournaments = (props) => {
       case "sub15":
         return importAll(
           require.context(
-            "../../assets/home/imagenes/sub15/posiciones",
+            "../../assets/home/imagenes/sub15/posiciones/",
             false,
             /\.(png|jpe?g|svg)$/
           )
@@ -120,7 +120,7 @@ export const CarouselTournaments = (props) => {
       default:
         return importAll(
           require.context(
-            "../../assets/home/imagenes/sub20/posiciones",
+            "../../assets/home/imagenes/sub20/posiciones/",
             false,
             /\.(png|jpe?g|svg)$/
           )
