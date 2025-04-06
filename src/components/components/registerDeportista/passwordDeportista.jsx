@@ -27,7 +27,7 @@ export const PasswordDeportista = ({ ...props }) => {
                     Contraseña
                   </h4>
                 </InputLabel>
-                <PasswordInput label="Contraseña" name="password" />
+                <PasswordInput label="Contraseña" name="user.password" />
                 <div style={{ marginTop: "2vh" }}>
                   <InputLabel>
                     <h4 style={{ textAlign: "left", color: "white" }}>
@@ -36,7 +36,7 @@ export const PasswordDeportista = ({ ...props }) => {
                   </InputLabel>
                   <PasswordInput
                     label="Confirmar Contraseña"
-                    name="passwordConfirmation"
+                    name="user.passwordConfirmation"
                   />
                 </div>
               </Col>

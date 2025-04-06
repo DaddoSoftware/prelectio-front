@@ -20,10 +20,10 @@ axiosInstance.interceptors.response.use(
 export function RegisterDeportistaService(data) {
   return axiosInstance({
     method: "post",
-    url: "api/deportista",
+    url: "user/create-full",
     baseURL: process.env.REACT_APP_BASE_URL,
     data: data,
-    headers: { "Content-Type": "multipart/form-data" },
+    headers: { "Content-Type": "application/json" },
   });
 }
 

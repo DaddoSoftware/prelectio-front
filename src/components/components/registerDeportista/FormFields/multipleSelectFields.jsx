@@ -7,101 +7,77 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-import {
-  Controller,
-  useFormContext,
-  useController,
-  get,
-} from "react-hook-form";
+import { Controller, useFormContext, useController, get } from "react-hook-form";
 
-export const MultipleSelectField = ({ ...props }) => {
-  const { fieldState } = useController(props);
+export const MultipleSelectField = ({
+  name,
+  label,
+  placeholder,
+  options,
+  required = true,
+  defaultValue = [],
+}) => {
   const { control } = useFormContext();
-  const { _formState } = control;
-  const error = get(_formState.errors, props.name);
-  const errorText = fieldState.invalid ? error.message : "";
+  const { fieldState } = useController({ name, control });
+  const error = get(control._formState.errors, name);
+  const errorText = fieldState.invalid ? error?.message : "";
 
   return (
-    <>
-      <Controller
-        {...props}
-        render={({ field: { ref, ...field } }) => (
-          <>
-            <Select
-              sx={{
-                border: "1px solid white",
-                borderRadius: "5px",
-                "& ::placeholder": {
-                  color: "white",
-                },
-                "& .MuiSvgIcon-root": {
-                  color: "white",
-                },
-              }}
-              inputProps={{
-                sx: {
-                  color: "red",
-                  borderColor: "white",
-                },
-              }}
-              multiple
-              inputRef={ref}
-              autoComplete="off"
-              fullWidth
-              label={props.label}
-              value={field.value ? field.value : 0}
-              required
-              size="small"
-              shrink="true"
-              error={error?.message ? true : false}
-              renderValue={(selected) => (
+    <Controller
+      name={name}
+      control={control}
+      defaultValue={defaultValue}
+      rules={{ required }}
+      render={({ field }) => (
+        <>
+          <Select
+            multiple
+            fullWidth
+            size="small"
+            value={Array.isArray(field.value) ? field.value : []}
+            onChange={(e) => field.onChange(e.target.value)}
+            inputRef={field.ref}
+            displayEmpty
+            error={!!errorText}
+            sx={{
+              border: "1px solid white",
+              borderRadius: "5px",
+              "& .MuiSvgIcon-root": {
+                color: "white",
+              },
+              color: "white",
+            }}
+            renderValue={(selected) => {
+              if (!Array.isArray(selected) || selected.length === 0) {
+                return <em style={{ color: "gray" }}>{placeholder}</em>;
+              }
+
+              return (
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-                  {selected
-                    .map((item) => {
-                      return props.options.find(function (option, i) {
-                        if (option.value === item) {
-                          return option.label;
-                        }
-                      });
-                    })
-                    .map((a) => {
-                      return (
-                        <Chip
-                          style={{ color: "white", backgroundColor: "#484848" }}
-                          key={a.value}
-                          label={a.label}
-                        />
-                      );
-                    })}
+                  {selected.map((value) => {
+                    const option = options.find((opt) => opt.value === value);
+                    return (
+                      <Chip
+                        key={value}
+                        label={option?.label || value}
+                        style={{ color: "white", backgroundColor: "#484848" }}
+                      />
+                    );
+                  })}
                 </Box>
-              )}
-              onChange={(e) => {
-                field.onChange(e.target.value);
-              }}
-            >
-              <MenuItem disabled value={0}>
-                {props.placeholder}
+              );
+            }}
+          >
+            {options.map((item) => (
+              <MenuItem key={item.value} value={item.value}>
+                <Checkbox checked={field.value?.includes(item.value)} />
+                <ListItemText primary={item.label} />
               </MenuItem>
-              {props.options.map((item, index) => {
-                return (
-                  <MenuItem key={index} value={item.value}>
-                    <Checkbox checked={field.value.includes(item.value)} />
-                    <ListItemText primary={item.label} />
-                  </MenuItem>
-                );
-              })}
-            </Select>{" "}
-            {error && <p style={{ color: "red" }}>{error.message}</p>}
-          </>
-        )}
-        rules={{ required: true }}
-        variant="outlined"
-        size="small"
-        control={control}
-        helperText={errorText ? errorText : props.helperText}
-        error={!!errorText}
-        defaultValue={props.defaultValue}
-      />
-    </>
+            ))}
+          </Select>
+          {errorText && <p style={{ color: "red", marginTop: 4 }}>{errorText}</p>}
+        </>
+      )}
+    />
   );
 };

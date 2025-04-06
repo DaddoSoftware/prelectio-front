@@ -1,12 +1,8 @@
 import React from "react";
-import {
-  Controller,
-  useFormContext,
-  useController,
-  get,
-} from "react-hook-form";
+import { Controller, useFormContext, useController, get } from "react-hook-form";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import moment from "moment";
 
 export const DateField = ({ ...props }) => {
   const { fieldState } = useController(props);
@@ -47,7 +43,13 @@ export const DateField = ({ ...props }) => {
                 fullWidth
                 format="DD/MM/YYYY"
                 label=""
-                value={field.value ? field.value : ""}
+                value={
+                  field.value
+                    ? moment.isMoment(field.value)
+                      ? field.value
+                      : moment(field.value)
+                    : null
+                }
                 required
                 size="small"
                 shrink="true"

@@ -6,309 +6,202 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import moment from "moment";
+import { useEffect } from "react";
+import { useFormContext } from "react-hook-form";
+
+// al inicio del componente
+
 
 export const Trayectoria = (props) => {
+  const { setValue } = useFormContext();
+  
   const addFields = () => {
-    let newfield = {
-      titulo_trayectoria: "",
-      descripcion_trayectoria: "",
-      fecha_inicio: "",
-      fecha_fin: "",
+    const newField = {
+      title: "",
+      description: "",
+      startDate: "",
+      endDate: "",
     };
-    props.setTrayectoria([...props.trayectoria, newfield]);
+    props.setTrayectoria([...props.trayectoria, newField]);
   };
 
-  const handleFormChange = (index, name, event) => {
-    let data = [...props.trayectoria];
-    data[index][name] = event;
+  const handleFormChange = (index, name, value) => {
+    const data = [...props.trayectoria];
+    data[index][name] = value;
     props.setTrayectoria(data);
-    console.log(data);
   };
 
   const removeField = (index) => {
-    let data = [...props.trayectoria];
+    const data = [...props.trayectoria];
     data.splice(index, 1);
     props.setTrayectoria(data);
   };
 
-  console.log(props.trayectoria);
+  useEffect(() => {
+    setValue("careers", props.trayectoria);
+  }, [props.trayectoria, setValue]);
+
   return (
     <div className="trayectoria">
       <Container className="trayectoria__container">
         <Row>
-          <h1>Trayectoria</h1>
+          <h1 style={{ color: "white" }}>Trayectoria</h1>
         </Row>
         <Row className="trayectoria__container__cardRow">
-          {props.trayectoria.map((item, index) => {
-            return (
-              <Card
-                className="trayectoria__container__cardRow__card"
-                key={index}
-              >
-                <Row style={{ height: "100%" }}>
-                  <Col
-                    md={11}
-                    style={{
-                      height: "100%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <Row style={{ width: "100%" }}>
-                      <Col
-                        xs={12}
-                        md={4}
-                        className="trayectoria__container__cardRow__card__col"
-                      >
-                        <InputLabel>
-                          <h4 style={{ textAlign: "left", color: "white" }}>
-                            Título
-                          </h4>
-                        </InputLabel>
-                        <TextField
-                          fullWidth
-                          sx={{
-                            border: "1px solid white",
-                            borderRadius: "5px",
-                            "& ::placeholder": {
-                              color: "white",
-                            },
-                          }}
-                          InputLabelProps={{
-                            sx: {
-                              color: "white",
-                              borderColor: "white",
-                            },
-                          }}
-                          inputProps={{
-                            sx: {
-                              color: "white",
-                              borderColor: "white",
-                            },
-                          }}
-                          onChange={(e, val) => {
-                            if (e.target.value) {
-                              handleFormChange(
-                                index,
-                                "titulo_trayectoria",
-                                e.target.value
-                              );
-                            } else {
-                              handleFormChange(index, "titulo_trayectoria", "");
-                            }
-                          }}
+          {props.trayectoria.map((item, index) => (
+            <Card
+              className="trayectoria__container__cardRow__card"
+              key={index}
+            >
+              <Row style={{ height: "100%" }}>
+                <Col
+                  md={11}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Row style={{ width: "100%" }}>
+                    <Col md={4}>
+                      <InputLabel>
+                        <h4 style={{ textAlign: "left", color: "white" }}>
+                          Título
+                        </h4>
+                      </InputLabel>
+                      <TextField
+                        fullWidth
+                        value={item.title || ""}
+                        onChange={(e) =>
+                          handleFormChange(index, "title", e.target.value)
+                        }
+                        sx={{
+                          border: "1px solid white",
+                          borderRadius: "5px",
+                          input: { color: "white" },
+                        }}
+                      />
+                    </Col>
+
+                    <Col md={4}>
+                      <InputLabel>
+                        <h4 style={{ textAlign: "left", color: "white" }}>
+                          Fecha Inicio
+                        </h4>
+                      </InputLabel>
+                      <LocalizationProvider dateAdapter={AdapterMoment}>
+                        <DesktopDatePicker
+                          format="DD/MM/YYYY"
                           value={
-                            item.titulo_trayectoria
-                              ? item.titulo_trayectoria
-                              : ""
+                            item.startDate
+                              ? moment(item.startDate)
+                              : null
                           }
-                        ></TextField>
-                      </Col>
-                      <Col
-                        xs={12}
-                        md={4}
-                        className="trayectoria__container__cardRow__card__col"
-                      >
-                        <InputLabel>
-                          <h4 style={{ textAlign: "left", color: "white" }}>
-                            Fecha Inicio
-                          </h4>
-                        </InputLabel>
-                        <LocalizationProvider dateAdapter={AdapterMoment}>
-                          <DesktopDatePicker
-                            sx={{
-                              border: "1px solid white",
-                              borderRadius: "5px",
-                              width: "100%",
-                              "& .MuiSvgIcon-root": {
-                                color: "white",
-                              },
-                              "& input": { color: "white" },
-                            }}
-                            inputlabelprops={{
-                              sx: {
-                                color: "white",
-                                borderColor: "white",
-                              },
-                            }}
-                            inputProps={{
-                              sx: {
-                                color: "white",
-                                borderColor: "white",
-                              },
-                            }}
-                            //inputRef={ref}
-                            autoComplete="off"
-                            fullWidth
-                            format="DD/MM/YYYY"
-                            label=""
-                            value={
-                              item.fecha_inicio ? moment(item.fecha_inicio) : ""
-                            }
-                            required
-                            size="small"
-                            shrink="true"
-                            onChange={(val) => {
-                              if (val) {
-                                handleFormChange(
-                                  index,
-                                  "fecha_inicio",
-                                  val.format("DD/MM/YYYY")
-                                );
-                              } else {
-                                handleFormChange(index, "fecha_inicio", "");
-                              }
-                            }}
-                          />
-                        </LocalizationProvider>
-                      </Col>
-                      <Col
-                        xs={12}
-                        md={4}
-                        className="trayectoria__container__cardRow__card__col"
-                      >
-                        <InputLabel>
-                          <h4 style={{ textAlign: "left", color: "white" }}>
-                            Fecha Fin
-                          </h4>
-                        </InputLabel>
-                        <LocalizationProvider dateAdapter={AdapterMoment}>
-                          <DesktopDatePicker
-                            fullWidth
-                            sx={{
-                              width: "100%",
-                              border: "1px solid white",
-                              borderRadius: "5px",
-                              "& .MuiSvgIcon-root": {
-                                color: "white",
-                              },
-                              "& input": { color: "white" },
-                            }}
-                            inputlabelprops={{
-                              sx: {
-                                color: "white",
-                                borderColor: "white",
-                              },
-                            }}
-                            inputProps={{
-                              sx: {
-                                color: "white",
-                                borderColor: "white",
-                              },
-                            }}
-                            //inputRef={ref}
-                            autoComplete="off"
-                            format="DD/MM/YYYY"
-                            label=""
-                            value={item.fecha_fin ? moment(item.fecha_fin) : ""}
-                            required
-                            size="small"
-                            shrink="true"
-                            onChange={(val) => {
-                              if (val) {
-                                handleFormChange(
-                                  index,
-                                  "fecha_fin",
-                                  val.format("DD/MM/YYYY")
-                                );
-                              } else {
-                                handleFormChange(index, "fecha_fin", "");
-                              }
-                            }}
-                          />
-                        </LocalizationProvider>
-                      </Col>
-                    </Row>
-                    <Row style={{ width: "100%", marginTop: "0.5vh" }}>
-                      <Col
-                        xs={12}
-                        md={12}
-                        className="trayectoria__container__cardRow__card__col"
-                      >
-                        <InputLabel>
-                          <h4 style={{ textAlign: "left", color: "white" }}>
-                            Descripción
-                          </h4>
-                        </InputLabel>
-                        <TextField
-                          fullWidth
-                          multiline
-                          rows={1}
+                          onChange={(val) =>
+                            handleFormChange(
+                              index,
+                              "startDate",
+                              val ? val.toISOString() : ""
+                            )
+                          }
                           sx={{
                             border: "1px solid white",
                             borderRadius: "5px",
-                            "& ::placeholder": {
+                            width: "100%",
+                            input: { color: "white" },
+                            "& .MuiSvgIcon-root": {
                               color: "white",
                             },
                           }}
-                          InputLabelProps={{
-                            sx: {
+                        />
+                      </LocalizationProvider>
+                    </Col>
+
+                    <Col md={4}>
+                      <InputLabel>
+                        <h4 style={{ textAlign: "left", color: "white" }}>
+                          Fecha Fin
+                        </h4>
+                      </InputLabel>
+                      <LocalizationProvider dateAdapter={AdapterMoment}>
+                        <DesktopDatePicker
+                          format="DD/MM/YYYY"
+                          value={
+                            item.endDate ? moment(item.endDate) : null
+                          }
+                          onChange={(val) =>
+                            handleFormChange(
+                              index,
+                              "endDate",
+                              val ? val.toISOString() : ""
+                            )
+                          }
+                          sx={{
+                            border: "1px solid white",
+                            borderRadius: "5px",
+                            width: "100%",
+                            input: { color: "white" },
+                            "& .MuiSvgIcon-root": {
                               color: "white",
-                              borderColor: "white",
                             },
                           }}
-                          inputProps={{
-                            sx: {
-                              color: "white",
-                              borderColor: "white",
-                            },
-                          }}
-                          onChange={(e, val) => {
-                            if (e.target.value) {
-                              handleFormChange(
-                                index,
-                                "descripcion",
-                                e.target.value
-                              );
-                            } else {
-                              handleFormChange(index, "descripcion", "");
-                            }
-                          }}
-                          value={item.descripcion ? item.descripcion : ""}
-                        ></TextField>
-                      </Col>
-                    </Row>
-                  </Col>
-                  <Col
-                    md={1}
-                    style={{
-                      height: "100%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-evenly",
-                      flexDirection: "column",
-                    }}
-                  >
-                    {index > 0 && (
-                      <Row>
-                        <IconButton
-                          style={{ padding: 0 }}
-                          onClick={() => {
-                            removeField(index);
-                          }}
-                        >
-                          <DeleteIcon
-                            fontSize="large"
-                            sx={{
-                              color: "#00ccff",
-                            }}
-                          />
-                        </IconButton>
-                      </Row>
-                    )}
-                  </Col>
-                </Row>
-              </Card>
-            );
-          })}
+                        />
+                      </LocalizationProvider>
+                    </Col>
+                  </Row>
+
+                  <Row style={{ width: "100%", marginTop: "1rem" }}>
+                    <Col md={12}>
+                      <InputLabel>
+                        <h4 style={{ textAlign: "left", color: "white" }}>
+                          Descripción
+                        </h4>
+                      </InputLabel>
+                      <TextField
+                        fullWidth
+                        multiline
+                        rows={2}
+                        value={item.description || ""}
+                        onChange={(e) =>
+                          handleFormChange(index, "description", e.target.value)
+                        }
+                        sx={{
+                          border: "1px solid white",
+                          borderRadius: "5px",
+                          input: { color: "white" },
+                        }}
+                      />
+                    </Col>
+                  </Row>
+                </Col>
+                <Col
+                  md={1}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                  }}
+                >
+                  {index > 0 && (
+                    <IconButton
+                      style={{ padding: 0 }}
+                      onClick={() => removeField(index)}
+                    >
+                      <DeleteIcon
+                        fontSize="large"
+                        sx={{ color: "#00ccff" }}
+                      />
+                    </IconButton>
+                  )}
+                </Col>
+              </Row>
+            </Card>
+          ))}
         </Row>
+
         <Row className="trayectoria__container__bottomRow">
-          <IconButton
-            style={{ padding: 0, width: "fit-content" }}
-            onClick={addFields}
-          >
+          <IconButton onClick={addFields}>
             <AddIcon
               fontSize="large"
               sx={{

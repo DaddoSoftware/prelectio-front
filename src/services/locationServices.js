@@ -15,3 +15,11 @@ export function getCiudades() {
     baseURL: process.env.REACT_APP_BASE_URL,
   });
 }
+
+export function getMunicipalities() {
+  return axios({
+    method: "get",
+    url: "location/municipalities",
+    baseURL: process.env.REACT_APP_BASE_URL,
+  })
+}

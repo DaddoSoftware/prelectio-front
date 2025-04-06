@@ -32,15 +32,11 @@ export const VideoYFotoPerfil = (props) => {
               <InputFieldMultiline
                 rows={4}
                 label="Descripción del jugador"
-                name="descripcion"
+                name="user.description"
               />
             </Row>
             <Row className="videoFotoPerfil__container__row__leftCol__bottomRow">
-              <Row
-                style={{
-                  marginBottom: "2vh",
-                }}
-              >
+              <Row style={{ marginBottom: "2vh" }}>
                 <Col xs={10}>
                   <InputLabel style={{ marginBottom: "0.5vh" }}>
                     <h5
@@ -66,8 +62,8 @@ export const VideoYFotoPerfil = (props) => {
                   <Tooltip
                     title={
                       <h5>
-                        Se debe subir un video publico en Youtube. Se recomienda
-                        un video corto, de maximo 3 minutos, donde demuestres
+                        Se debe subir un video público en YouTube. Se recomienda
+                        un video corto, de máximo 3 minutos, donde demuestres
                         tus mejores talentos y habilidades.
                       </h5>
                     }
@@ -87,7 +83,7 @@ export const VideoYFotoPerfil = (props) => {
                 </Col>
               </Row>
               <Row>
-                <InputField label="Link a video" name="link_video" />
+                <InputField label="Link a video" name="athlete.video" />
               </Row>
             </Row>
           </Col>
@@ -97,7 +93,7 @@ export const VideoYFotoPerfil = (props) => {
               handleImageChange={props.handleImageChange}
               imagePreviewUrl={props.imagePreviewUrl}
               label="Foto de perfil"
-              name="image"
+              name="profileImage"
             />
           </Col>
         </Row>
